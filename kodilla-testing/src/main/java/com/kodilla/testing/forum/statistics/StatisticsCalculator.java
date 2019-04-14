@@ -41,7 +41,14 @@ public class StatisticsCalculator {
             averageNumberOfCommentsPerUser = (double) numberOfComments / (double) numberOfUsers;
             averageNumberOfCommentsPerPost = (double) numberOfComments / (double) numberOfPosts;
         } else {
-            System.out.println("Cannot calculate adv statistics for given data!");
+            if(numberOfUsers == 0 && numberOfPosts != 0){
+                averageNumberOfCommentsPerPost = (double) numberOfComments / (double) numberOfPosts;
+            } else {
+                if(numberOfUsers != 0 && numberOfPosts == 0){
+                    averageNumberOfPostsPerUser = (double) numberOfPosts / (double) numberOfUsers;
+                    averageNumberOfCommentsPerUser = (double) numberOfComments / (double) numberOfUsers;
+                }
+            }
         }
     }
 

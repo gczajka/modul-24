@@ -47,7 +47,7 @@ public class StatisticsCalculatorTestSuite {
 
         //Then
         Assert.assertEquals(0 , calc.getNumberOfPosts());
-        Assert.assertEquals(0.0 , calc.getAverageNumberOfPostsPerUser(), 0.01);
+        Assert.assertEquals(0.25 , calc.getAverageNumberOfCommentsPerUser(), 0.01);
     }
 
     @Test
@@ -91,6 +91,7 @@ public class StatisticsCalculatorTestSuite {
 
         //Then
         Assert.assertEquals(0 , calc.getNumberOfUsers());
+        Assert.assertEquals(2.5 , calc.getAverageNumberOfCommentsPerPost(), 0.01);
     }
 
     @Test
