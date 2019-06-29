@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class FlightFinder {
 
     public void findFlight(FlightRepository repository, FlightRequest request) {
-        if(request.getDeparture() != "none" && request.getDestination() != "none") {
+        if(!request.getDeparture().equals("none") && !request.getDestination().equals("none")) {
             if(!repository.getFlightsByDeparture().keySet().contains(request.getDeparture()) || !repository.getFlightsByDestination().keySet().contains(request.getDestination())) {
                 System.out.println("Unable to find a suitable flight");
             } else {
@@ -47,13 +47,13 @@ public class FlightFinder {
                     }
                 }
             }
-        } else if(request.getDeparture() != "none" && request.getDestination() == "none") {
+        } else if(!request.getDeparture().equals("none") && request.getDestination().equals("none")) {
             ArrayList<Flight> depList = repository.getFlightsByDeparture().get(request.getDeparture());
             System.out.println("Following flights are available from " + request.getDeparture() + " : ");
             for (Flight flight: depList) {
                 System.out.println("number " + flight.getFlightNumber() + " to " + flight.getDestination());
             }
-        } else if (request.getDeparture() == "none" && request.getDestination() != "none") {
+        } else if (request.getDeparture().equals("none") && !request.getDestination().equals("none")) {
             ArrayList<Flight> destList = repository.getFlightsByDestination().get(request.getDestination());
             System.out.println("Following flights are available to " + request.getDestination() + " : ");
             for (Flight flight: destList) {
