@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Bigmac {
     private final String bun;
-    private final int burgers;
+    private final int hotdogs;
     private final String sauce;
     private final ArrayList<String> ingredients;
 
-    private Bigmac(final String bun, final int burgers, final String sauce, ArrayList<String> ingredients) {
+    private Bigmac(final String bun, final int hotdogs, final String sauce, ArrayList<String> ingredients) {
         this.bun = bun;
-        this.burgers = burgers;
+        this.hotdogs = hotdogs;
         this.sauce = sauce;
         this.ingredients = new ArrayList<>(ingredients);
     }
@@ -19,8 +19,8 @@ public class Bigmac {
         return bun;
     }
 
-    public int getBurgers() {
-        return burgers;
+    public int getHotdogs() {
+        return hotdogs;
     }
 
     public String getSauce() {
@@ -66,7 +66,7 @@ public class Bigmac {
     public String toString() {
         return "Bigmac{" +
                 "bun='" + bun + '\'' +
-                ", burgers=" + burgers +
+                ", hotdogs=" + hotdogs +
                 ", sauce='" + sauce + '\'' +
                 ", ingredients=" + ingredients +
                 '}';

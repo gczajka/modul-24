@@ -1,5 +1,7 @@
 package com.kodilla.patterns.factory.tasks;
 
+import java.util.List;
+
 public class TaskFactory {
     public static final String SHOP = "SHOP";
     public static final String PAINT = "PAINT";
@@ -16,4 +18,5 @@ public class TaskFactory {
             default: return null;
         }
     }
+
 }

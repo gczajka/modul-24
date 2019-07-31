@@ -1,29 +1,28 @@
 package com.kodilla.patterns.builder.bigmac;
 
-import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class BigmacTestSuite {
     @Test
     public void testNewBigmac() {
         //Given
-        Bigmac bg = new Bigmac.BigmacBuilder()
-                            .bun("with sesame")
-                            .sauce("barbecue")
-                            .burgers(2)
-                            .ingredient("bacon")
-                            .ingredient("salad")
-                            .ingredient("cheese")
-                            .build();
-
-        System.out.println(bg);
-
+        Bigmac.BigmacBuilder builder = new Bigmac.BigmacBuilder()
+                .bun("with sesame")
+                .sauce("barbecue")
+                .burgers(2)
+                .ingredient("bacon")
+                .ingredient("salad")
+                .ingredient("cheese");
         //When
-        int numberOfIngredients = bg.getIngredients().size();
+        Bigmac bg = builder.build();
 
         //Then
-        Assert.assertEquals(3, numberOfIngredients);
-        Assert.assertEquals("with sesame", bg.getBun());
-        Assert.assertEquals("barbecue", bg.getSauce());
+        System.out.println(bg);
+        assertEquals(3, bg.getIngredients().size());
+        assertEquals("with sesame", bg.getBun());
+        assertEquals("barbecue", bg.getSauce());
+
     }
 }
