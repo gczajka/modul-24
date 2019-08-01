@@ -6,4 +6,4 @@ include 'kodilla-spring_2.0'
 include 'kodilla-patterns_2.0'
 include 'kodilla-spring-web'
 include 'kodilla-jdbc'
-
+include 'kodilla-hibernate'
