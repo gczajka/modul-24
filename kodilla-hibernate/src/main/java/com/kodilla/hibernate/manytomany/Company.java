@@ -6,9 +6,14 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery(name = "Company.retrieveCompaniesWithNamesStartingWith",
-                    query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :LETTERS",
-                    resultClass = Company.class)
+@NamedNativeQueries({
+        @NamedNativeQuery(name = "Company.retrieveCompaniesWithNamesStartingWith",
+                query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :LETTERS",
+                resultClass = Company.class),
+        @NamedNativeQuery(name = "Company.retrieveCompaniesWithNamesContainingPhrase",
+                query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE CONCAT('%',:PHRASE,'%')",
+                resultClass = Company.class)
+})
 
 @Table(name = "COMPANIES")
 @Entity

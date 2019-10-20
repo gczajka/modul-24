@@ -6,8 +6,12 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(name = "Employee.retrieveEmployeesWithTheGivenLastName",
-            query = "FROM Employee WHERE lastname = :LASTNAME" )
+@NamedQueries({
+        @NamedQuery(name = "Employee.retrieveEmployeesWithTheGivenLastName",
+                query = "FROM Employee WHERE lastname = :LASTNAME"),
+        @NamedQuery(name = "Employee.retrieveEmployeesWithNamesContainingPhrase",
+                query = "FROM Employee WHERE lastname LIKE CONCAT('%',:PHRASE,'%')")
+})
 
 @Entity
 @Table(name = "EMPLOYEES")

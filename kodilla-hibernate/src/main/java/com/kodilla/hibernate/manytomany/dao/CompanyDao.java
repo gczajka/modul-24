@@ -8,6 +8,9 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface CompanyDao extends CrudRepository<Company, Integer> {
-    @Query
+    @Query(nativeQuery = true)
     List<Company> retrieveCompaniesWithNamesStartingWith(@Param("LETTERS") String letters);
+
+    @Query(nativeQuery = true)
+    List<Company> retrieveCompaniesWithNamesContainingPhrase(@Param("PHRASE") String phrase);
 }
